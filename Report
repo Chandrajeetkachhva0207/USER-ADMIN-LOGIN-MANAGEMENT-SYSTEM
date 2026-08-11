@@ -1,0 +1,15 @@
+Day 1 Project Report – Project Setup & UI Development
+Project Setup & User Interface
+
+On Day 1, the primary focus was on setting up the project structure and developing the basic user interface for the Login and Registration modules.
+The objective was to create a clean, responsive, and user-friendly interface that can be extended with backend functionality in the upcoming stages.
+First, the project environment was configured and the required folders and files were organized properly.
+A structured project architecture was created to separate components, pages, assets, and other resources.
+This structure will help maintain the project efficiently and make future development easier.
+The Login page was developed with input fields for essential user credentials such as email/username and password.
+Proper labels, buttons, spacing, and basic validation considerations were included to provide a simple and clear user experience.
+A Registration page was also created to allow new users to enter their required information and create an account.
+The interface was designed consistently with the Login page so that users can easily navigate between the two pages.
+The project also includes separate interface considerations for User and Admin login.
+The purpose of this design is to provide different access levels based on the type of user.
+The Admin interface can later be connected with administrative features, while the User interface can be connected with regular user functionalities.
