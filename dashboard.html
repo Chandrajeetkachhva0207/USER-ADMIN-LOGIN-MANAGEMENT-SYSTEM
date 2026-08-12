@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Premium UI</title>
+  <meta name="description" content="User dashboard after successful login.">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/auth.css">
+  <style>
+    .dashboard-container {
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+      z-index: 1;
+      text-align: center;
+    }
+    
+    .welcome-text {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      letter-spacing: -0.025em;
+    }
+
+    .user-email {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 32px;
+    }
+
+    .dashboard-content {
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      color: var(--text-main);
+      line-height: 1.6;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-logout {
+      background: #ef4444;
+      color: #fff;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+
+    .btn-logout:hover {
+      background: #dc2626;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+
+  <div class="dashboard-container">
+    <div class="glass-card">
+      <h1 class="welcome-text">Welcome, <span id="displayUsername">User</span>!</h1>
+      <p class="user-email" id="displayEmail">user@example.com</p>
+
+      <div class="dashboard-content">
+        <p>You have successfully authenticated and logged into your account.</p>
+        <p>This is your protected dashboard area. You can manage your profile, view statistics, or perform other secure operations here.</p>
+      </div>
+
+      <button id="logoutBtn" class="btn-primary btn-logout">Sign Out</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check authentication
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      
+      if (!currentUser) {
+        // Not logged in, redirect to login
+        window.location.href = 'index.html';
+        return;
+      }
+
+      // Display user info
+      document.getElementById('displayUsername').textContent = currentUser.username || 'User';
+      document.getElementById('displayEmail').textContent = currentUser.email;
+
+      // Handle Logout
+      document.getElementById('logoutBtn').addEventListener('click', () => {
+        const btn = document.getElementById('logoutBtn');
+        btn.textContent = 'Signing Out...';
+        btn.style.opacity = '0.8';
+        
+        setTimeout(() => {
+          localStorage.removeItem('currentUser');
+          window.location.href = 'index.html';
+        }, 800);
+      });
+    });
+  </script>
+</body>
+</html>

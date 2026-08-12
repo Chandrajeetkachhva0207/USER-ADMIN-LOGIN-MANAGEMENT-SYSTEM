@@ -6,77 +6,79 @@
 }
 
 .glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
-  padding: 40px;
-  box-shadow: var(--glass-shadow);
-  transform: translateY(20px);
-  opacity: 0;
-  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 40px 32px;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes slideUp {
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .auth-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .auth-header h1 {
   font-size: 28px;
   font-weight: 700;
+  color: var(--text-main);
   margin-bottom: 8px;
-  background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.03em;
 }
 
 .auth-header p {
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   position: relative;
 }
 
 .form-group label {
   display: block;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 8px;
-  color: #cbd5e1;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .form-group input {
   width: 100%;
   padding: 14px 16px;
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid var(--glass-border);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
   border-radius: 12px;
-  color: #fff;
+  color: var(--text-main);
   font-size: 15px;
   transition: all 0.3s ease;
   outline: none;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .form-group input:focus {
   border-color: var(--primary-color);
-  background: rgba(15, 23, 42, 0.8);
-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary-color) 20%, transparent);
+  background: var(--card-bg);
 }
 
 .form-group input::placeholder {
-  color: #475569;
+  color: var(--text-muted);
+  opacity: 0.6;
 }
 
 .forgot-password {
@@ -86,6 +88,7 @@
   color: var(--primary-color);
   text-decoration: none;
   margin-top: 8px;
+  font-weight: 600;
   transition: color 0.2s;
 }
 
@@ -96,8 +99,8 @@
 .btn-primary {
   width: 100%;
   padding: 14px;
-  background: var(--primary-color);
-  color: #fff;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  color: #ffffff;
   border: none;
   border-radius: 12px;
   font-size: 15px;
@@ -105,80 +108,126 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 10px;
-  position: relative;
-  overflow: hidden;
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--primary-color) 30%, transparent);
+  letter-spacing: 0.02em;
 }
 
 .btn-primary:hover {
-  background: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px -10px var(--primary-color);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--primary-color) 45%, transparent);
 }
 
 .btn-primary:active {
-  transform: translateY(0);
+  transform: translateY(1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .auth-footer {
   text-align: center;
-  margin-top: 24px;
+  margin-top: 28px;
   font-size: 14px;
   color: var(--text-muted);
 }
 
 .auth-footer a {
-  color: #fff;
+  color: var(--primary-color);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   transition: color 0.2s;
 }
 
 .auth-footer a:hover {
-  color: var(--primary-color);
+  color: var(--primary-hover);
 }
 
+/* Role Switcher */
 .role-switch {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
-  gap: 15px;
+  margin-top: 28px;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 4px;
+  border-radius: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .role-switch {
+    background: rgba(255, 255, 255, 0.05);
+  }
 }
 
 .role-badge {
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 500;
-  background: rgba(255, 255, 255, 0.05);
+  flex: 1;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
   color: var(--text-muted);
   text-decoration: none;
-  transition: all 0.2s;
-  border: 1px solid transparent;
+  background: transparent;
+  transition: all 0.3s ease;
 }
 
 .role-badge.active {
-  background: rgba(99, 102, 241, 0.1);
-  color: var(--primary-color);
-  border-color: rgba(99, 102, 241, 0.3);
+  background: var(--card-bg);
+  color: var(--text-main);
+  box-shadow: var(--shadow-sm);
 }
 
 .role-badge:hover:not(.active) {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  color: var(--text-main);
+}
+
+/* 2FA Token Inputs */
+.token-input-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.token-input {
+  width: 48px;
+  height: 58px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 12px;
+  color: var(--text-main);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(10px);
+}
+
+.token-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary-color) 20%, transparent);
+  background: var(--card-bg);
+  outline: none;
 }
 
 /* Error states */
 .input-error {
   border-color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.05) !important;
 }
 .error-msg {
   color: #ef4444;
   font-size: 12px;
+  font-weight: 500;
   margin-top: 6px;
   display: block;
   opacity: 0;
   transform: translateY(-5px);
-  transition: all 0.3s;
+  transition: all 0.3s ease;
 }
 .error-msg.visible {
   opacity: 1;
@@ -188,5 +237,11 @@
 @media (max-width: 480px) {
   .glass-card {
     padding: 30px 20px;
+    border-radius: 16px;
+  }
+  .token-input {
+    width: 42px;
+    height: 52px;
+    font-size: 20px;
   }
 }

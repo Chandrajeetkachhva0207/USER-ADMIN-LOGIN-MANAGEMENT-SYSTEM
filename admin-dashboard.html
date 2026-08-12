@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Premium UI</title>
+  <meta name="description" content="Admin dashboard after successful login.">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/auth.css">
+  <style>
+    :root {
+      --primary-color: #ef4444;
+      --primary-hover: #dc2626;
+    }
+    
+    .dashboard-container {
+      width: 100%;
+      max-width: 800px;
+      padding: 20px;
+      z-index: 1;
+      text-align: center;
+    }
+    
+    .welcome-text {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      letter-spacing: -0.025em;
+    }
+
+    .admin-email {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 32px;
+    }
+
+    .dashboard-content {
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      color: var(--text-main);
+      line-height: 1.6;
+      text-align: left;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-card h3 {
+      font-size: 24px;
+      color: var(--text-main);
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .stat-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .btn-logout {
+      background: #ef4444;
+      color: #fff;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+
+    .btn-logout:hover {
+      background: #dc2626;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+
+  <div class="dashboard-container">
+    <div class="glass-card">
+      <h1 class="welcome-text">System Administrator</h1>
+      <p class="admin-email" id="displayAdminId">admin@system.com</p>
+
+      <div class="dashboard-content">
+        <h2>System Overview</h2>
+        <p style="margin-top: 10px;">Welcome to the secure administrative portal.</p>
+        
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>System Status</h3>
+            <p style="color: #10b981;">Online & Secure</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="userCount">0</h3>
+            <p>Registered Users</p>
+          </div>
+          <div class="stat-card">
+            <h3>4.2ms</h3>
+            <p>Server Latency</p>
+          </div>
+        </div>
+      </div>
+
+      <button id="logoutBtn" class="btn-primary btn-logout">Secure Sign Out</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check admin authentication
+      const currentAdmin = JSON.parse(localStorage.getItem('currentAdmin'));
+      
+      if (!currentAdmin) {
+        // Not logged in, redirect to login
+        window.location.href = 'admin-login.html';
+        return;
+      }
+
+      // Display admin info
+      document.getElementById('displayAdminId').textContent = currentAdmin.adminId;
+
+      // Update user count from local storage
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      document.getElementById('userCount').textContent = users.length;
+
+      // Handle Logout
+      document.getElementById('logoutBtn').addEventListener('click', () => {
+        const btn = document.getElementById('logoutBtn');
+        btn.textContent = 'Signing Out...';
+        btn.style.opacity = '0.8';
+        
+        setTimeout(() => {
+          localStorage.removeItem('currentAdmin');
+          window.location.href = 'admin-login.html';
+        }, 800);
+      });
+    });
+  </script>
+</body>
+</html>

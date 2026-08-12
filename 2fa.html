@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2-Step Verification | Premium UI</title>
+  <meta name="description" content="Secure 2FA verification page.">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/auth.css">
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+
+  <div class="auth-container">
+    <div class="glass-card">
+      <div class="auth-header">
+        <h1>2-Step Verification</h1>
+        <p>Enter the 6-digit code sent to your email/device</p>
+      </div>
+
+      <form id="twoFactorForm">
+        <div class="token-input-group">
+          <input type="text" maxlength="1" class="token-input" autofocus required>
+          <input type="text" maxlength="1" class="token-input" required>
+          <input type="text" maxlength="1" class="token-input" required>
+          <input type="text" maxlength="1" class="token-input" required>
+          <input type="text" maxlength="1" class="token-input" required>
+          <input type="text" maxlength="1" class="token-input" required>
+        </div>
+        <div style="text-align: center;">
+            <span class="error-msg" id="twoFactorError"></span>
+        </div>
+
+        <button type="submit" class="btn-primary">Verify Identity</button>
+      </form>
+
+      <div class="auth-footer">
+        Didn't receive code? <a href="#" id="resendCode">Resend</a>
+      </div>
+      
+      <div class="auth-footer" style="margin-top: 10px;">
+        <a href="index.html">Back to Login</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
