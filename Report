@@ -13,3 +13,30 @@ The interface was designed consistently with the Login page so that users can ea
 The project also includes separate interface considerations for User and Admin login.
 The purpose of this design is to provide different access levels based on the type of user.
 The Admin interface can later be connected with administrative features, while the User interface can be connected with regular user functionalities.
+
+Day 2 – User Authentication
+On Day 2 of the project, the main focus was on implementing User Authentication.
+The objective was to create a secure and user-friendly authentication system that allows users to register, log in, and log out of the application.
+Authentication is an important part of any web application because it protects user-specific information and ensures that only authorized users can access certain features.
+
+User Registration
+The first task completed was the user registration functionality.
+A registration form was created where users can enter their basic details, including username/email and password.
+Basic validation was implemented to ensure that required fields are not empty and that the entered information follows the expected format.
+The system also checks whether the username or email already exists before creating a new account.
+
+User Login
+The second task was implementing the user login functionality.
+Registered users can log in using their username or email and password.
+The entered credentials are validated against the stored user information.
+If the credentials are correct, the user is successfully authenticated and can access the application's protected features. 
+If the credentials are incorrect, an appropriate error message is displayed.
+
+User Logout
+A logout feature was also implemented. 
+It allows authenticated users to securely end their session.
+After logout, the user is redirected appropriately and cannot access protected pages without logging in again.
+
+Basic Validation
+Basic input validation was added to improve reliability and user experience.
+Empty fields, invalid email formats, incorrect credentials, and duplicate accounts are handled appropriately.
