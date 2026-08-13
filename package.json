@@ -1,0 +1,26 @@
+{
+  "name": "4_week_intership_task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chandrajeetkachhva0207/USER-ADMIN-LOGIN-MANAGEMENT-SYSTEM.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Chandrajeetkachhva0207/USER-ADMIN-LOGIN-MANAGEMENT-SYSTEM/issues"
+  },
+  "homepage": "https://github.com/Chandrajeetkachhva0207/USER-ADMIN-LOGIN-MANAGEMENT-SYSTEM#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongoose": "^9.9.2"
+  }
+}
