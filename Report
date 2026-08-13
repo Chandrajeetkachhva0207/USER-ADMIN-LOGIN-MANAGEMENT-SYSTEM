@@ -40,3 +40,22 @@ After logout, the user is redirected appropriately and cannot access protected p
 Basic Validation
 Basic input validation was added to improve reliability and user experience.
 Empty fields, invalid email formats, incorrect credentials, and duplicate accounts are handled appropriately.
+
+Day 3 – Admin Authentication & Dashboards
+On Day 3, I implemented a separate Admin Authentication system to provide secure access to administrative features.
+Admin login was developed using predefined admin credentials, ensuring that only authorized administrators could access the Admin Dashboard.
+I also created separate User and Admin Dashboards based on their respective roles.
+Protected routes were implemented to prevent unauthorized users from accessing restricted pages.
+If a user attempted to access an admin-only page without proper authentication, the system redirected the user to the appropriate login or dashboard page.
+This improved the overall security and role management of the application.
+
+Outcome: Working Admin Login, User Dashboard, Admin Dashboard, and protected routes.
+
+Day 4 – Database Integration
+
+On Day 4, I integrated the application with a database such as MongoDB/MySQL/Firebase for persistent data storage.
+A Users collection/table was created to store important user information such as name, email, password-related data, role, and account status.
+I implemented functionality to save newly registered user details into the database and fetch existing user records when required. 
+This replaced temporary/local data handling with a structured database system and enabled the application to maintain user information efficiently.
+Outcome: Connected database with successfully stored and retrieved user records.
+
